@@ -19,19 +19,21 @@ export default function App() {
     <div className="bg-white text-gray-900 font-serif">
       {/* HEADER */}
       <header style={{background:'var(--brand)'}} className="sticky top-0 z-50">
-        <nav className="max-w-6xl mx-auto grid grid-cols-3 items-center px-4 sm:px-6 py-3 sm:py-4">
-          {/* Left: large icon logo */}
-          <div className="flex items-center justify-start">
-            <img src="/logo.png" alt="Логотип Артемида" className="h-12 sm:h-14 w-auto" />
+        <nav className="relative max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+          {/* Left: big logo only */}
+          <a href="#top" className="flex items-center gap-3 pr-3">
+            <img src="/logo.png" alt="Логотип Артемида" className="h-16 md:h-20 w-auto" />
+          </a>
+
+          {/* Center absolute: brand title */}
+          <div className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+            <div className="brand-title text-white tracking-wide">
+              <span className="text-3xl md:text-4xl font-semibold">АРТЕМИДА</span>
+            </div>
           </div>
 
-          {/* Center: brand name in Cinzel */}
-          <div className="flex justify-center">
-            <div className="brand-title text-white text-xl sm:text-2xl md:text-3xl tracking-wide">АРТЕМИДА</div>
-          </div>
-
-          {/* Right: desktop menu / mobile hamburger */}
-          <ul className="hidden md:flex justify-end gap-6 text-sm uppercase tracking-wider text-white">
+          {/* Right: desktop menu / mobile burger */}
+          <ul className="hidden md:flex items-center gap-6 text-sm uppercase tracking-wider text-white">
             <li><a href="#about" className="hover:opacity-80">О бренде</a></li>
             <li><a href="#philosophy" className="hover:opacity-80">Философия</a></li>
             <li><a href="#materials" className="hover:opacity-80">Материалы</a></li>
@@ -39,14 +41,22 @@ export default function App() {
             <li><a href="#care" className="hover:opacity-80">Уход</a></li>
             <li><a href="#contacts" className="hover:opacity-80">Контакты</a></li>
           </ul>
-          <div className="md:hidden flex justify-end">
-            <button aria-label="Открыть меню" onClick={()=>setMenuOpen(!menuOpen)} className="text-white">
-              {menuOpen ? <FaTimes size={24}/> : <FaBars size={24}/>}
-            </button>
-          </div>
+
+          <button
+            aria-label="Открыть меню"
+            className="md:hidden text-white"
+            onClick={()=>setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes size={24}/> : <FaBars size={24}/>}
+          </button>
         </nav>
+
         {menuOpen && (
-          <motion.ul initial={{opacity:0}} animate={{opacity:1}} className="flex flex-col gap-3 px-4 pb-4 md:hidden uppercase text-sm text-white">
+          <motion.ul
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            className="md:hidden uppercase text-sm text-white px-4 pb-4 space-y-3"
+          >
             <li><a href="#about" onClick={()=>setMenuOpen(false)}>О бренде</a></li>
             <li><a href="#philosophy" onClick={()=>setMenuOpen(false)}>Философия</a></li>
             <li><a href="#materials" onClick={()=>setMenuOpen(false)}>Материалы</a></li>
@@ -60,9 +70,10 @@ export default function App() {
       {/* HERO */}
       <section className="relative h-[46vh] sm:h-[62vh] flex items-center justify-center overflow-hidden">
         <img src="https://picsum.photos/seed/hero-arte/1800/1200" alt="Jewelry background" className="absolute w-full h-full object-cover brightness-75"/>
-        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-10 w-[58%] max-w-[520px] -z-0" style={{filter:"grayscale(1)"}} />
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="relative text-center text-white px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h2>
+        {/* Watermark subtler */}
+        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-5 w-[58%] max-w-[520px]" style={{filter:"grayscale(1)"}} />
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="relative text-center text-white px-4 z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h1>
           <p className="text-xs sm:text-sm uppercase tracking-widest">Артемида</p>
         </motion.div>
       </section>

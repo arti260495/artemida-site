@@ -1,6 +1,8 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{--brand:#2b3035}
-body{font-family:'Georgia',serif;} .brand-title{font-family:'Cinzel',serif;}
+:root{ --brand:#2b3035; }
+body{ font-family:'Georgia', serif; }
+.brand-title{ font-family:'Cinzel', serif; }
