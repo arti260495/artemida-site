@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaPinterestP, FaBars, FaTimes } from "react-icons/fa";
-import { SiAvito } from "react-icons/si";
+import { FaInstagram, FaPinterestP, FaBars, FaTimes, FaShoppingBag } from "react-icons/fa";
 
 export default function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -90,7 +89,7 @@ export default function App() {
         <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide">Контакты</h3>
         <p className="text-base sm:text-lg italic mb-8 sm:mb-10">Следите за обновлениями бренда:</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
-          <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><SiAvito className="text-xl"/> Avito</a>
+          <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaShoppingBag className="text-xl"/> Avito</a>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaInstagram className="text-xl"/> Instagram</a>
           <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaPinterestP className="text-xl"/> Pinterest</a>
         </div>
