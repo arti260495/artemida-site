@@ -19,56 +19,94 @@ export default function App() {
     <div className="bg-white text-gray-900 font-serif">
       {/* HEADER */}
       <header style={{background:'var(--brand)'}} className="sticky top-0 z-50">
-        <nav className="max-w-6xl mx-auto grid grid-cols-3 items-center px-6 py-4">
-          <div className="hidden md:block" />
-          <div className="flex justify-center">
-            <img src="/logo.png" alt="Артемида — логотип" className="h-10 sm:h-12 w-auto drop-shadow-md" />
+        <nav className="max-w-6xl mx-auto grid grid-cols-3 items-center px-4 sm:px-6 py-3 sm:py-4">
+          {/* Left: large icon logo */}
+          <div className="flex items-center justify-start">
+            <img src="/logo.png" alt="Логотип Артемида" className="h-12 sm:h-14 w-auto" />
           </div>
+
+          {/* Center: brand name in Cinzel */}
+          <div className="flex justify-center">
+            <div className="brand-title text-white text-xl sm:text-2xl md:text-3xl tracking-wide">АРТЕМИДА</div>
+          </div>
+
+          {/* Right: desktop menu / mobile hamburger */}
           <ul className="hidden md:flex justify-end gap-6 text-sm uppercase tracking-wider text-white">
             <li><a href="#about" className="hover:opacity-80">О бренде</a></li>
+            <li><a href="#philosophy" className="hover:opacity-80">Философия</a></li>
+            <li><a href="#materials" className="hover:opacity-80">Материалы</a></li>
             <li><a href="#gallery" className="hover:opacity-80">Галерея</a></li>
+            <li><a href="#care" className="hover:opacity-80">Уход</a></li>
             <li><a href="#contacts" className="hover:opacity-80">Контакты</a></li>
           </ul>
-          <div className="md:hidden col-start-3 justify-self-end text-white">
-            <button aria-label="Открыть меню" onClick={()=>setMenuOpen(!menuOpen)}>
+          <div className="md:hidden flex justify-end">
+            <button aria-label="Открыть меню" onClick={()=>setMenuOpen(!menuOpen)} className="text-white">
               {menuOpen ? <FaTimes size={24}/> : <FaBars size={24}/>}
             </button>
           </div>
         </nav>
         {menuOpen && (
-          <motion.ul initial={{opacity:0}} animate={{opacity:1}} className="flex flex-col gap-4 px-6 pb-4 md:hidden uppercase text-sm text-white">
+          <motion.ul initial={{opacity:0}} animate={{opacity:1}} className="flex flex-col gap-3 px-4 pb-4 md:hidden uppercase text-sm text-white">
             <li><a href="#about" onClick={()=>setMenuOpen(false)}>О бренде</a></li>
+            <li><a href="#philosophy" onClick={()=>setMenuOpen(false)}>Философия</a></li>
+            <li><a href="#materials" onClick={()=>setMenuOpen(false)}>Материалы</a></li>
             <li><a href="#gallery" onClick={()=>setMenuOpen(false)}>Галерея</a></li>
+            <li><a href="#care" onClick={()=>setMenuOpen(false)}>Уход</a></li>
             <li><a href="#contacts" onClick={()=>setMenuOpen(false)}>Контакты</a></li>
           </motion.ul>
         )}
       </header>
 
       {/* HERO */}
-      <section className="relative h-[50vh] sm:h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[46vh] sm:h-[62vh] flex items-center justify-center overflow-hidden">
         <img src="https://picsum.photos/seed/hero-arte/1800/1200" alt="Jewelry background" className="absolute w-full h-full object-cover brightness-75"/>
-        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-10 w-[60%] max-w-[520px] -z-0" style={{filter:"grayscale(1)"}} />
+        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-10 w-[58%] max-w-[520px] -z-0" style={{filter:"grayscale(1)"}} />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="relative text-center text-white px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h2>
           <p className="text-xs sm:text-sm uppercase tracking-widest">Артемида</p>
         </motion.div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="max-w-4xl mx-auto py-16 sm:py-20 px-4 text-center leading-relaxed">
+      <section id="about" className="max-w-4xl mx-auto py-14 sm:py-16 px-4 text-center leading-relaxed">
         <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide">О бренде</h3>
         <p className="text-base sm:text-lg italic">
-          Наши украшения рождаются из тишины и внимания к моменту. Каждое изделие — как воспоминание, заключённое в блеске металла, холоде камня и тепле рук. Они хранят дыхание мгновений, которые хочется помнить.
+          Наши украшения рождаются из тишины и внимания к моменту.
+          Каждое изделие — как воспоминание, заключённое в блеске металла, холоде камня и тепле рук.
+          Они хранят дыхание мгновений, которые хочется помнить.
+          Это не просто украшения — это маленькая жемчужина Вашей истории, которая остаётся рядом,
+          впитывая эмоции, тепло и память.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          <img src="https://picsum.photos/seed/about-1/800/600" alt="Jewelry 1" className="rounded-2xl shadow-md" />
-          <img src="https://picsum.photos/seed/about-2/800/600" alt="Jewelry 2" className="rounded-2xl shadow-md" />
-          <img src="https://picsum.photos/seed/about-3/800/600" alt="Jewelry 3" className="rounded-2xl shadow-md" />
+      </section>
+
+      {/* PHILOSOPHY */}
+      <section id="philosophy" className="bg-gray-50 py-14 sm:py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center leading-relaxed">
+          <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide">Философия</h3>
+          <p className="text-base sm:text-lg italic">
+            Мы создаём вещи, с которыми хочется жить, возвращаться к ним и бережно относиться, как к части собственной истории.
+            Наши украшения — это не громкие заявления, а тихое присутствие, которое становится частью Вашего внутреннего мира.
+            Они проживают вместе с Вами важные моменты и становятся отражением пережитого, заключённого в материю.
+          </p>
+        </div>
+      </section>
+
+      {/* MATERIALS */}
+      <section id="materials" className="max-w-4xl mx-auto py-14 sm:py-16 px-4 text-center leading-relaxed">
+        <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide">Материалы и процесс</h3>
+        <p className="text-base sm:text-lg italic">
+          В работе мы используем <strong>925 sterling silver (без государственного пробирного клейма РФ)</strong>, натуральные камни, жемчуг, бисер и красивые стеклянные бусины — всё, что красиво сочетается и рождает мелодию.
+          Каждый элемент создаётся с вниманием к форме, цвету и текстуре, чтобы итоговое изделие сочетало красоту, прочность и эмоциональную ценность.
+          Ручная работа превращает украшение из вещи в маленькую жемчужину Вашей истории, с которой хочется оставаться рядом.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+          <img src="https://picsum.photos/seed/material-1/900/700" alt="Silver" className="rounded-2xl shadow-md" />
+          <img src="https://picsum.photos/seed/material-2/900/700" alt="Gemstones" className="rounded-2xl shadow-md" />
         </div>
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="bg-gray-50 py-16 sm:py-20 px-4">
+      <section id="gallery" className="bg-gray-50 py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl mb-8 sm:mb-10 font-light tracking-wide">Галерея</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
@@ -88,8 +126,30 @@ export default function App() {
         </div>
       </section>
 
+      {/* CARE - collapsible */}
+      <section id="care" className="py-14 sm:py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide text-center">Уход за украшениями</h3>
+          <details className="bg-gray-50 rounded-2xl shadow-sm p-5 open:shadow-md">
+            <summary className="cursor-pointer list-none select-none text-base sm:text-lg font-medium">
+              Нажмите, чтобы развернуть рекомендации по уходу
+            </summary>
+            <div className="mt-4 text-gray-700 leading-relaxed">
+              <p className="italic mb-3">Для того чтобы украшение радовало долгие годы:</p>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>Храните отдельно от других изделий, в бархатном мешочке или коробочке.</li>
+                <li>Очищайте мягкой тканью, избегайте абразивов и агрессивной химии.</li>
+                <li>Снимайте перед водой, спортом или контактом с косметикой.</li>
+                <li>Проверяйте крепления и застёжки регулярно.</li>
+              </ul>
+              <p className="italic mt-4">Бережное обращение превращает изделие в маленькую жемчужину, которая сохраняет тепло рук мастера и воспоминания Владельца.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
       {/* CONTACTS */}
-      <section id="contacts" className="py-16 sm:py-20 px-4 text-center">
+      <section id="contacts" className="bg-gray-50 py-16 px-4 text-center">
         <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide">Контакты</h3>
         <p className="text-base sm:text-lg italic mb-8 sm:mb-10">Следите за обновлениями бренда:</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
