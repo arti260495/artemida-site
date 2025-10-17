@@ -19,21 +19,21 @@ export default function App() {
     <div className="bg-white text-gray-900 font-serif">
       {/* HEADER */}
       <header style={{background:'var(--brand)'}} className="sticky top-0 z-50">
-        <nav className="relative max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-          {/* Left: big logo only */}
-          <a href="#top" className="flex items-center gap-3 pr-3">
-            <img src="/logo.png" alt="Логотип Артемида" className="h-16 md:h-20 w-auto" />
+        <nav className="relative max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 min-h-[64px]">
+          {/* Left: только символ логотипа (обрезаем текст) */}
+          <a href="#top" className="flex items-center pr-3">
+            <div className="h-14 md:h-16 w-14 md:w-16 overflow-hidden">
+              <img src="/logo.png" alt="Логотип Артемида" className="h-full w-full object-cover object-top" />
+            </div>
           </a>
 
-          {/* Center absolute: brand title */}
-          <div className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-            <div className="brand-title text-white tracking-wide">
-              <span className="text-3xl md:text-4xl font-semibold">АРТЕМИДА</span>
-            </div>
+          {/* Center: бренд по центру, под меню/бургером */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <div className="brand-title text-white tracking-wide text-3xl md:text-4xl font-semibold">АРТЕМИДА</div>
           </div>
 
-          {/* Right: desktop menu / mobile burger */}
-          <ul className="hidden md:flex items-center gap-6 text-sm uppercase tracking-wider text-white">
+          {/* Right: меню (десктоп) */}
+          <ul className="hidden md:flex items-center gap-6 text-sm uppercase tracking-wider text-white relative z-10">
             <li><a href="#about" className="hover:opacity-80">О бренде</a></li>
             <li><a href="#philosophy" className="hover:opacity-80">Философия</a></li>
             <li><a href="#materials" className="hover:opacity-80">Материалы</a></li>
@@ -42,21 +42,14 @@ export default function App() {
             <li><a href="#contacts" className="hover:opacity-80">Контакты</a></li>
           </ul>
 
-          <button
-            aria-label="Открыть меню"
-            className="md:hidden text-white"
-            onClick={()=>setMenuOpen(!menuOpen)}
-          >
+          {/* Burger (мобилка) */}
+          <button aria-label="Открыть меню" className="md:hidden text-white relative z-10" onClick={()=>setMenuOpen(!menuOpen)}>
             {menuOpen ? <FaTimes size={24}/> : <FaBars size={24}/>}
           </button>
         </nav>
 
         {menuOpen && (
-          <motion.ul
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            className="md:hidden uppercase text-sm text-white px-4 pb-4 space-y-3"
-          >
+          <motion.ul initial={{opacity:0}} animate={{opacity:1}} className="md:hidden uppercase text-sm text-white px-4 pb-4 space-y-3 relative z-10">
             <li><a href="#about" onClick={()=>setMenuOpen(false)}>О бренде</a></li>
             <li><a href="#philosophy" onClick={()=>setMenuOpen(false)}>Философия</a></li>
             <li><a href="#materials" onClick={()=>setMenuOpen(false)}>Материалы</a></li>
@@ -70,7 +63,6 @@ export default function App() {
       {/* HERO */}
       <section className="relative h-[46vh] sm:h-[62vh] flex items-center justify-center overflow-hidden">
         <img src="https://picsum.photos/seed/hero-arte/1800/1200" alt="Jewelry background" className="absolute w-full h-full object-cover brightness-75"/>
-        {/* Watermark subtler */}
         <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-5 w-[58%] max-w-[520px]" style={{filter:"grayscale(1)"}} />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="relative text-center text-white px-4 z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h1>
