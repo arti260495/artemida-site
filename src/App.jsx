@@ -18,21 +18,17 @@ export default function App() {
   return (
     <div className="bg-white text-gray-900 font-serif">
       {/* HEADER */}
-      <header style={background:"#2b3035"} className="sticky top-0 z-50">
+      <header style={{background:'var(--brand)'}} className="sticky top-0 z-50">
         <nav className="max-w-6xl mx-auto grid grid-cols-3 items-center px-6 py-4">
-          {/* left spacer on desktop */}
           <div className="hidden md:block" />
-          {/* centered logo */}
-          <div className="flex justify-center text-white">
+          <div className="flex justify-center">
             <img src="/logo.png" alt="Артемида — логотип" className="h-10 sm:h-12 w-auto drop-shadow-md" />
           </div>
-          {/* desktop menu */}
           <ul className="hidden md:flex justify-end gap-6 text-sm uppercase tracking-wider text-white">
-            <li><a href="#about" className="hover:text-gray-500">О бренде</a></li>
-            <li><a href="#gallery" className="hover:text-gray-500">Галерея</a></li>
-            <li><a href="#contacts" className="hover:text-gray-500">Контакты</a></li>
+            <li><a href="#about" className="hover:opacity-80">О бренде</a></li>
+            <li><a href="#gallery" className="hover:opacity-80">Галерея</a></li>
+            <li><a href="#contacts" className="hover:opacity-80">Контакты</a></li>
           </ul>
-          {/* mobile hamburger */}
           <div className="md:hidden col-start-3 justify-self-end text-white">
             <button aria-label="Открыть меню" onClick={()=>setMenuOpen(!menuOpen)}>
               {menuOpen ? <FaTimes size={24}/> : <FaBars size={24}/>}
@@ -50,8 +46,8 @@ export default function App() {
 
       {/* HERO */}
       <section className="relative h-[50vh] sm:h-[70vh] flex items-center justify-center overflow-hidden">
-        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-10 w-[60%] max-w-[520px] -z-0" style={{filter:"grayscale(1)"}} />
         <img src="https://picsum.photos/seed/hero-arte/1800/1200" alt="Jewelry background" className="absolute w-full h-full object-cover brightness-75"/>
+        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-10 w-[60%] max-w-[520px] -z-0" style={{filter:"grayscale(1)"}} />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="relative text-center text-white px-4">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h2>
           <p className="text-xs sm:text-sm uppercase tracking-widest">Артемида</p>
@@ -64,6 +60,11 @@ export default function App() {
         <p className="text-base sm:text-lg italic">
           Наши украшения рождаются из тишины и внимания к моменту. Каждое изделие — как воспоминание, заключённое в блеске металла, холоде камня и тепле рук. Они хранят дыхание мгновений, которые хочется помнить.
         </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          <img src="https://picsum.photos/seed/about-1/800/600" alt="Jewelry 1" className="rounded-2xl shadow-md" />
+          <img src="https://picsum.photos/seed/about-2/800/600" alt="Jewelry 2" className="rounded-2xl shadow-md" />
+          <img src="https://picsum.photos/seed/about-3/800/600" alt="Jewelry 3" className="rounded-2xl shadow-md" />
+        </div>
       </section>
 
       {/* GALLERY */}
@@ -77,7 +78,9 @@ export default function App() {
                 <div className="p-4">
                   <h4 className="text-base sm:text-lg font-medium mb-1 sm:mb-2">{product.name}</h4>
                   <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">{product.description}</p>
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm hover:bg-gray-800 transition">Купить на Авито</a>
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm hover:bg-gray-800 transition">
+                    <span className="inline-flex items-center gap-2"><FaShoppingBag /> Купить на Авито</span>
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -90,9 +93,9 @@ export default function App() {
         <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-light tracking-wide">Контакты</h3>
         <p className="text-base sm:text-lg italic mb-8 sm:mb-10">Следите за обновлениями бренда:</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
-          <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaShoppingBag className="text-xl"/> Avito</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaInstagram className="text-xl"/> Instagram</a>
-          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaPinterestP className="text-xl"/> Pinterest</a>
+          <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaShoppingBag/> Avito</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaInstagram/> Instagram</a>
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"><FaPinterestP/> Pinterest</a>
         </div>
       </section>
 
