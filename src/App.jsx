@@ -7,40 +7,40 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const products = [
-    { id:1, name:"Серьги с жемчугом и серебром", img:"https://images.unsplash.com/photo-1600180758137-fb5b2ef0f10b?auto=format&fit=crop&w=900&q=80", description:"Ручная работа. Серебро 925, натуральный речной жемчуг. Лёгкие, как дыхание.", link:"https://www.avito.ru/" },
-    { id:2, name:"Кольцо «Утро тумана»", img:"https://images.unsplash.com/photo-1600180758743-c1b10b8798b3?auto=format&fit=crop&w=900&q=80", description:"Серебро 925 без пробирного клейма РФ, кварц с молочным оттенком.", link:"https://www.avito.ru/" },
-    { id:3, name:"Браслет с камнями агата", img:"https://images.unsplash.com/photo-1614281709279-f7d0baf04b0b?auto=format&fit=crop&w=900&q=80", description:"Гармония прозрачного стекла и природного агата. Каждый камень уникален.", link:"https://www.avito.ru/" },
-    { id:4, name:"Подвеска «Тихое утро»", img:"https://images.unsplash.com/photo-1589621317449-0f5f3a3c6a9c?auto=format&fit=crop&w=900&q=80", description:"Серебро, стекло ручной огранки, деликатный блеск.", link:"https://www.avito.ru/" },
-    { id:5, name:"Колье с камнем лунного света", img:"https://images.unsplash.com/photo-1600180758353-2bb937a9f13b?auto=format&fit=crop&w=900&q=80", description:"Нежное сочетание серебра и натурального камня.", link:"https://www.avito.ru/" },
-    { id:6, name:"Серьги с кристаллами", img:"https://images.unsplash.com/photo-1600180758165-1d7dfb7f842f?auto=format&fit=crop&w=900&q=80", description:"Ручная работа с прозрачными кристаллами для особых моментов.", link:"https://www.avito.ru/" }
+    { id:1, name:"Серьги с жемчугом и серебром", img:"https://picsum.photos/seed/arte-1/900/700", description:"Ручная работа. Серебро 925, натуральный речной жемчуг. Лёгкие, как дыхание.", link:"https://www.avito.ru/" },
+    { id:2, name:"Кольцо «Утро тумана»", img:"https://picsum.photos/seed/arte-2/900/700", description:"Серебро 925 без пробирного клейма РФ, кварц с молочным оттенком.", link:"https://www.avito.ru/" },
+    { id:3, name:"Браслет с камнями агата", img:"https://picsum.photos/seed/arte-3/900/700", description:"Гармония прозрачного стекла и природного агата. Каждый камень уникален.", link:"https://www.avito.ru/" },
+    { id:4, name:"Подвеска «Тихое утро»", img:"https://picsum.photos/seed/arte-4/900/700", description:"Серебро, стекло ручной огранки, деликатный блеск.", link:"https://www.avito.ru/" },
+    { id:5, name:"Колье с камнем лунного света", img:"https://picsum.photos/seed/arte-5/900/700", description:"Нежное сочетание серебра и натурального камня.", link:"https://www.avito.ru/" },
+    { id:6, name:"Серьги с кристаллами", img:"https://picsum.photos/seed/arte-6/900/700", description:"Ручная работа с прозрачными кристаллами для особых моментов.", link:"https://www.avito.ru/" }
   ];
 
   return (
     <div className="bg-white text-gray-900 font-serif">
       {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+      <header style={background:"#2b3035"} className="sticky top-0 z-50">
         <nav className="max-w-6xl mx-auto grid grid-cols-3 items-center px-6 py-4">
           {/* left spacer on desktop */}
           <div className="hidden md:block" />
           {/* centered logo */}
-          <div className="flex justify-center">
-            <img src="/logo.png" alt="Артемида — логотип" className="h-8 sm:h-10 w-auto" />
+          <div className="flex justify-center text-white">
+            <img src="/logo.png" alt="Артемида — логотип" className="h-10 sm:h-12 w-auto drop-shadow-md" />
           </div>
           {/* desktop menu */}
-          <ul className="hidden md:flex justify-end gap-6 text-sm uppercase tracking-wider">
+          <ul className="hidden md:flex justify-end gap-6 text-sm uppercase tracking-wider text-white">
             <li><a href="#about" className="hover:text-gray-500">О бренде</a></li>
             <li><a href="#gallery" className="hover:text-gray-500">Галерея</a></li>
             <li><a href="#contacts" className="hover:text-gray-500">Контакты</a></li>
           </ul>
           {/* mobile hamburger */}
-          <div className="md:hidden col-start-3 justify-self-end">
+          <div className="md:hidden col-start-3 justify-self-end text-white">
             <button aria-label="Открыть меню" onClick={()=>setMenuOpen(!menuOpen)}>
               {menuOpen ? <FaTimes size={24}/> : <FaBars size={24}/>}
             </button>
           </div>
         </nav>
         {menuOpen && (
-          <motion.ul initial={{opacity:0}} animate={{opacity:1}} className="flex flex-col gap-4 px-6 pb-4 md:hidden uppercase text-sm">
+          <motion.ul initial={{opacity:0}} animate={{opacity:1}} className="flex flex-col gap-4 px-6 pb-4 md:hidden uppercase text-sm text-white">
             <li><a href="#about" onClick={()=>setMenuOpen(false)}>О бренде</a></li>
             <li><a href="#gallery" onClick={()=>setMenuOpen(false)}>Галерея</a></li>
             <li><a href="#contacts" onClick={()=>setMenuOpen(false)}>Контакты</a></li>
@@ -50,7 +50,8 @@ export default function App() {
 
       {/* HERO */}
       <section className="relative h-[50vh] sm:h-[70vh] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1615814691323-7b63c473b1f4?auto=format&fit=crop&w=1800&q=80" alt="Jewelry background" className="absolute w-full h-full object-cover brightness-75"/>
+        <img src="/logo.png" alt="Артемида логотип" className="absolute opacity-10 w-[60%] max-w-[520px] -z-0" style={{filter:"grayscale(1)"}} />
+        <img src="https://picsum.photos/seed/hero-arte/1800/1200" alt="Jewelry background" className="absolute w-full h-full object-cover brightness-75"/>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="relative text-center text-white px-4">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-light mb-2 sm:mb-4 tracking-wide">Украшения, рожденные из тишины</h2>
           <p className="text-xs sm:text-sm uppercase tracking-widest">Артемида</p>
