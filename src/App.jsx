@@ -24,7 +24,7 @@ export default function App() {
           <div className="hidden md:block" />
           {/* centered logo */}
           <div className="flex justify-center">
-            <img src="/src/assets/logo.png" alt="Артемида — логотип" className="h-8 sm:h-10 w-auto" />
+            <img src="/logo.png" alt="Артемида — логотип" className="h-8 sm:h-10 w-auto" />
           </div>
           {/* desktop menu */}
           <ul className="hidden md:flex justify-end gap-6 text-sm uppercase tracking-wider">
