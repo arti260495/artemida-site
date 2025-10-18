@@ -3,6 +3,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{ --brand:#2b3035; }
-body{ font-family:'Georgia', serif; }
-.brand-title{ font-family:'Cinzel', serif; }
+:root{
+  --brand:#2b3035;
+  --ink:#2E2A28;
+  --text:#3B3835;
+  --btn:#2E2A28;
+  --btnHover:#5A514C;
+  --ivory:#FAF9F7;
+}
+
+html, body { cursor: default; background: var(--ivory); }
+
+.body-text { font-family: 'Lora', serif; color: var(--text); }
+.headings  { font-family: 'Playfair Display', serif; color: var(--ink); }
+.ui-font   { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+.brand-title { font-family: 'Playfair Display', serif; color: #fff; }
+
+@keyframes fadeInSlow { from { opacity: 0; } to { opacity: 1; } }
+.logo-fade { animation: fadeInSlow 0.8s ease forwards; opacity: 0; }
+
+.card { transition: transform .4s ease, box-shadow .4s ease, opacity .4s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.12); opacity: .98; }
+
+.btn-primary { background: var(--btn); box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+.btn-primary:hover { background: var(--btnHover); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
+.btn-primary { @apply ui-font text-white px-5 py-2.5 rounded-xl inline-flex items-center gap-2; }
+
+.care-collapsed { position: relative; max-height: 140px; overflow: hidden; }
+.care-collapsed::after {
+  content: '⋯';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 0 10px 0; text-align: center; color: #666;
+  background: linear-gradient(180deg, rgba(250,249,247,0) 0%, rgba(250,249,247,1) 70%);
+}
+.care-content { transition: max-height .7s ease-in-out, padding .7s ease-in-out; }
