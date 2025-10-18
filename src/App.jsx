@@ -102,7 +102,7 @@ export default function App() {
                 <div className="p-4">
                   <h4 className="headings text-lg mb-2">{product.name}</h4>
                   <p className="text-sm mb-3">{product.description}</p>
-                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="ui-font text-white px-5 py-2.5 rounded-xl inline-flex items-center gap-2 hover:-translate-y-[1px]" style={{background:"var(--btn)", boxShadow:"0 4px 12px rgba(0,0,0,.08)", transition:"background .3s ease, transform .3s ease, box-shadow .3s ease"}}>
                     <FaShoppingBag/> Приобрести на Авито
                   </a>
                   <p className="text-[12px] italic text-[#555] mt-3">Вариация возможна в другой цветовой гамме.</p>
@@ -178,9 +178,9 @@ export default function App() {
         <h3 className="headings text-2xl sm:text-3xl mb-6 sm:mb-8">Контакты</h3>
         <p className="mb-8 italic">Следите за обновлениями бренда:</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
-          <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer" className="btn-primary"><FaShoppingBag/> Avito</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="btn-primary"><FaInstagram/> Instagram</a>
-          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="btn-primary"><FaPinterestP/> Pinterest</a>
+          <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer" className="ui-font text-white px-5 py-2.5 rounded-xl inline-flex items-center gap-2 hover:-translate-y-[1px]" style={{background:"var(--btn)", boxShadow:"0 4px 12px rgba(0,0,0,.08)", transition:"background .3s ease, transform .3s ease, box-shadow .3s ease"}}><FaShoppingBag/> Avito</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="ui-font text-white px-5 py-2.5 rounded-xl inline-flex items-center gap-2 hover:-translate-y-[1px]" style={{background:"var(--btn)", boxShadow:"0 4px 12px rgba(0,0,0,.08)", transition:"background .3s ease, transform .3s ease, box-shadow .3s ease"}}><FaInstagram/> Instagram</a>
+          <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="ui-font text-white px-5 py-2.5 rounded-xl inline-flex items-center gap-2 hover:-translate-y-[1px]" style={{background:"var(--btn)", boxShadow:"0 4px 12px rgba(0,0,0,.08)", transition:"background .3s ease, transform .3s ease, box-shadow .3s ease"}}><FaPinterestP/> Pinterest</a>
         </div>
       </section>
 
